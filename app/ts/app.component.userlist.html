@@ -1,0 +1,13 @@
+<table>
+    <thead>
+        <th>Name</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="#u of userlist; #i=index" (click)="onSelect(u)">
+        <td>
+            {{i+1}} : {{u.fname}} {{u.lname}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<selected-user [selectedUser]="selectedUser" (notify)='onNotify($event)'></selected-user>

@@ -1,0 +1,17 @@
+<div>
+    Selected User Details
+    <hr/>
+
+    <Div *ngIf="selectedUser" (click)='onClick(selectedUser)'>
+        ID {{selectedUser.id}}
+        Name {{selectedUser.fname}} {{selectedUser.lname}}
+        Age {{selectedUser.age}}
+    </Div>
+    <hr/>
+    <div *ngIf="selectedUser">
+        Name :
+        <input type="text" id="fname" required
+               [(ngModel)]="selectedUser.fname"
+        />
+    </div>
+</div>
