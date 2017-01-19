@@ -4,24 +4,26 @@
 import {Component} from 'angular2/core'
 import {User} from './model.user'
 import {SelectedUser} from './app.component.selecteduser'
-import {combineLatest} from "rxjs/operator/combineLatest";
+import {UserService} from './app.service.user'
 
 @Component({
     selector:'user-list',
     templateUrl:'./app/ts/app.component.userlist.html',
-    directives:[SelectedUser]
+    directives:[SelectedUser],
+    providers:[UserService]
 })
 
 export  class  UserList{
     private userlist:Array<User>=[];
     public selectedUser:User=null;
-    constructor(){
-        this.userlist.push(
+    constructor(userService:UserService){
+        /*this.userlist.push(
             new User(1,'Jonathon','Robert',30),
             new User(2,'Mariya','Willium',20),
             new User(3,'Hariat','Winslet',50),
             new User(4,'Peter','Parkar',45)
-        )
+        )*/
+        this.userlist=userService.getAll();
     }
 
     getUser(){
